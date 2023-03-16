@@ -36,3 +36,93 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Important changes :
+
+1. Important changes with <Image>
+
+If you see some errors related to <Image> component
+
+change the import of the Image this way:
+
+import Image from 'next/legacy/image'
+
+instead of
+
+import Image from "next/image"
+
+Then it should work the same as in the lectures.
+
+2. Important changes with <Link>
+
+If you see this error:
+
+Error: Invalid <Link> with <a> child. Please remove <a> or use <Link legacyBehavior>. Learn more: https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
+
+This means the <Link> component doesn't need an a element inside anymore.
+
+The fix is very simple. Find in the layout <Link> component, for example, this one:
+
+```
+
+<Link
+  key={item.name}
+  href={item.href}
+>
+  <a
+    className={classNames(
+      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+      'px-3 py-2 rounded-md text-sm font-medium'
+    )}
+    aria-current={item.current ? 'page' : undefined}
+  >
+    {item.name}
+  </a>
+</Link>
+
+```
+
+1. And change it to:
+
+```
+
+<Link
+  key={item.name}
+  href={item.href}
+  className={classNames(
+      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+      'px-3 py-2 rounded-md text-sm font-medium'
+    )}
+    aria-current={item.current ? 'page' : undefined}
+>
+  {item.name}
+</Link>
+
+
+2. OR keep it as it was and add to it legacyBehavior  prop, so it looks like this:
+
+
+
+<Link
+  key={item.name}
+  href={item.href}
+  legacyBehavior
+>
+  <a
+    className={classNames(
+      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+      'px-3 py-2 rounded-md text-sm font-medium'
+    )}
+    aria-current={item.current ? 'page' : undefined}
+  >
+    {item.name}
+  </a>
+</Link>
+
+```
+
+Very simple. You need to do this with all links. This is the easiest way to fix it and not break the layout.
+
+More ways can be found here:
+
+https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
