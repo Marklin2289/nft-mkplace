@@ -57,15 +57,17 @@ import Image from "next/image"
 
 Then it should work the same as in the lectures.
 
-2. Important changes with <Link>
+2. Important changes with `<Link>`
 
 If you see this error:
 
+```
 Error: Invalid <Link> with <a> child. Please remove <a> or use <Link legacyBehavior>. Learn more: https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
 
 This means the <Link> component doesn't need an a element inside anymore.
 
 The fix is very simple. Find in the layout <Link> component, for example, this one:
+```
 
 ```
 
