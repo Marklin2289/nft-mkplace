@@ -3,12 +3,12 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import Image from "next/image";
+import img from "../../public/images/page_logo.png";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Marketplace", href: "/", current: true },
+  { name: "Create", href: "/nft/create", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -35,9 +35,12 @@ export default function Navbar() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
+                  <Image
                     className="hidden lg:block h-10 w-auto"
-                    src="./images/page_logo.png"
+                    layout="intrinsic"
+                    height={50}
+                    width={50}
+                    src={img}
                     alt="Workflow"
                   />
                 </div>

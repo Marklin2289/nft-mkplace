@@ -132,3 +132,10 @@ Very simple. You need to do this with all links. This is the easiest way to fix 
 More ways can be found here:
 
 https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
+
+## Update:
+
+- NextJs Image tag :
+  `import Image from "next/image";`
+  in version 13 change to
+  `import Image from "next/legacy/image";`
