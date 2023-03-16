@@ -39,17 +39,21 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Important changes :
 
-1. Important changes with <Image>
+1. Important changes with `<Image>`
 
-If you see some errors related to <Image> component
+If you see some errors related to `<Image>` component
 
 change the import of the Image this way:
 
+```
 import Image from 'next/legacy/image'
+```
 
 instead of
 
+```
 import Image from "next/image"
+```
 
 Then it should work the same as in the lectures.
 
