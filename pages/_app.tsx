@@ -1,3 +1,4 @@
+import { Web3Provider } from "@providers";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
@@ -7,9 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ToastContainer />
+      <Web3Provider>
+        <ToastContainer />
 
-      <Component {...pageProps} />
+        <Component {...pageProps} />
+      </Web3Provider>
     </>
   );
 }
